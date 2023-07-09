@@ -12,7 +12,7 @@ import {
   ListGroupItem,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
-import products from "../products";
+
 
 const ProductScreen = () => {
   const [isHovered, setIsHovered] = useState(false);
