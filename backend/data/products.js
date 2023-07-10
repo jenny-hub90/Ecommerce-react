@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Black Georgette Top',
     image: '/images/IMG_2775.jpg',
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '2',
     name: 'Pastel Orange Georgette Top',
     image: '/images/IMG_2810.jpg',
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '3',
     name: 'Pink Pleated Shirt',
     image: '/images/IMG_2864.jpg',
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '4',
     name: 'Blue Georgette Top',
     image: '/images/IMG_2889.jpg',
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '5',
     name: 'Sky Blue Crop Shirt',
     image: '/images/IMG_2901.jpg',
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '6',
     name: 'Maroon Georgette Shirt',
     image: '/images/IMG_2921.jpg',
     description:
