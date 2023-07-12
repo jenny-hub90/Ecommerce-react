@@ -1,18 +1,11 @@
-import {useEffect,useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from 'axios';
+import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
 import { Link } from "react-router-dom";
-import {
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Card,
-  Button,
-  ListGroupItem,
-} from "react-bootstrap";
+import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
-
+import Loader from "../components/loader";
+import Message from "../components/Message";
 
 const ProductScreen = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -23,16 +16,13 @@ const ProductScreen = () => {
   const handleMouseOut = () => {
     setIsHovered(false);
   };
-  const [product, setProduct] = useState({});
+
   const { id: productId } = useParams();
-  
-  useEffect(()=> {
-    const fetchProduct = async () => {
-      const {data} = await axios.get(`/api/products/${productId}`);
-      setProduct(data);
-    }
-    fetchProduct();
-  }, [productId]);
+  const {
+    data: product,
+    isLoading,
+    error,
+  } = useGetProductDetailsQuery(productId);
 
   const productName = {
     fontFamily: "Noto Serif Makasar, serif",
@@ -49,15 +39,14 @@ const ProductScreen = () => {
     fontFamily: "Cardo, serif",
     color: "#000",
     transition: "background-color 0.3s",
-    border:"none"
+    border: "none",
   };
   const buttonHoverStyle = {
     backgroundColor: "#000",
     color: "#fff",
   };
-  
+
   return (
-    
     <>
       <Link
         className="btn btn-light my-3"
@@ -70,7 +59,8 @@ const ProductScreen = () => {
       >
         Go Back
       </Link>
-      <Row>
+
+      { isLoading? (<Loader/>): error? (<Message variant='danger'>{ error?.data?.message || error.error}</Message>):(  <Row>
         <Col md={5}>
           <Image src={product.image} alt={product.name} fluid />
         </Col>
@@ -133,7 +123,7 @@ const ProductScreen = () => {
             </ListGroup>
           </Card>
         </Col>
-      </Row>
+      </Row>)}
     </>
   );
 };
