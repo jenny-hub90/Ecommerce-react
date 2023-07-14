@@ -36,11 +36,19 @@ const updateUserProfile = asyncHandler(async (req,res) => {
     res.send('update user profile');
 });
 
+
 //@desc Get users
 //@route GET /api/users
 //@access Private/Admin
 const getUsers = asyncHandler(async (req,res) => {
     res.send('get users');
+});
+
+//@desc Get users by ID
+//@route GET /api/users/:id
+//@access Private/Admin
+const getUsersByID= asyncHandler(async (req,res) => {
+    res.send('get users by id');
 });
 
 //@desc Delete users
@@ -49,5 +57,24 @@ const getUsers = asyncHandler(async (req,res) => {
 const deleteUsers = asyncHandler(async (req,res) => {
     res.send('delete user');
 });
+
+//@desc Update users
+//@route PUT /api/users/:id
+//@access Private/Admin
+const updateUser = asyncHandler(async (req,res) => {
+    res.send('update user');
+});
+
+export{
+    authUser,
+    registerUser,
+    logoutUser,
+    getUserProfile,
+    updateUserProfile,
+    getUsers,
+    deleteUsers,
+    getUsersByID,
+    updateUser
+}
 
 
