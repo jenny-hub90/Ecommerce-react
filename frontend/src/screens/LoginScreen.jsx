@@ -30,8 +30,13 @@ const LoginScreen = () => {
   }, [userInfo, redirect, navigate]);
 
   const submitHandler = async (e) => {
+    
     e.preventDefault();
     try {
+      if(email === " " || password ===""){
+        toast.error("invalid email or password")
+        return
+      }
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
