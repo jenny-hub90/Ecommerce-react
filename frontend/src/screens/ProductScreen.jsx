@@ -75,11 +75,7 @@ const ProductScreen = () => {
       <Link
         className="btn btn-light my-3"
         to="/"
-        style={
-          isHovered ? { ...buttonStyle, ...buttonHoverStyle } : buttonStyle
-        }
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
+        style={buttonStyle}
       >
         Go Back
       </Link>
