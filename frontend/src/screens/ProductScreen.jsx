@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import Rating from "../components/Rating";
-import Loader from "../components/loader";
+import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { addToCart } from "../slices/cartSlice";
 
